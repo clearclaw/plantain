@@ -24,7 +24,7 @@ setup (name = 'banana',
   ],
   entry_points = {
     "console_scripts": [
-      "banana = banana:main",
+      "banana = banana.main:main",
       ],
     },
   )

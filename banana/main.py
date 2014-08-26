@@ -73,7 +73,7 @@ class BananaCmd (object):
       LOG.error ("Problem processing files for template: %s  action: %s",
                  self.args.template, self.args.action)
       sys.exit (2)
-    act = getattr (self, "cmd_%s" % self.args.action, None):
+    act = getattr (self, "cmd_%s" % self.args.action, None)
     if act:
       try:
         rc = act ()
@@ -82,7 +82,7 @@ class BananaCmd (object):
           print rc
       except mandrill.Error, e:
        LOG.error ("Mandrill: %s - %s", e.__class__, e)
-        raise
+       raise
     else:
       LOG.error ("No implementation for: %s", seklf.args.action)
       sys.exit (1)
@@ -90,12 +90,10 @@ class BananaCmd (object):
 def parse_args ():
   parser = argparse.ArgumentParser (
       description = "Manage and deploy Mandrill templates.")
-  sites = aws_creds.sites ()
-  sites.sort ()
   parser.add_argument ("-k", "--key", metavar = "KEY", dest = "key",
                        help = "Mandrill API key.")
   parser.add_argument ("-t", "--template", metavar = "template",
-                       dest = "template", required = TRUE,
+                       dest = "template", required = True,
                        help = "Template to manipulate.")
   parser.add_argument ("-a", "--action", metavar = "ACTION",
                        dest = "act", required = True,
@@ -110,7 +108,8 @@ def parse_args ():
   return args
 
 def main ():
-  pass
+  args = parse_args ()
+  BananaCmd (args).run ()
 
 if __name__ ==  "__main__":
-  return main ()
+  main ()
