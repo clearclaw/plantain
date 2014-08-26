@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-import argparse, logging, mandrill
+import argparse, logging, mandrill, sys
 from configobj import ConfigObj
 from path import path
 
@@ -14,64 +14,65 @@ class BananaCmd (object):
     self.templ_html = None
     self.templ_text = None
 
-  def cmd_add ():
-    return client.templates.add (
-      name = self.conf["name"],
+  def cmd_add (self):
+    return self.client.templates.add (
+      name = self.args.template,
       from_email = self.conf["from_email"],
       from_name = self.conf["from_name"],
       subject = self.conf["subject"],
       code = self.templ_html,
-      text = self.templ_txt,
+      text = self.templ_text,
       publish = self.args.publish,
       labels = self.conf.get ("labels", []),
     )
 
-  def cmd_info ():
-    rc = client.templates.info (name = self.conf["name"])
+  def cmd_info (self):
+    rc = self.client.templates.info (name = self.args.template)
 
-  def cmd_update ():
-    return client.templates.update (
-      name = self.conf["name"],
+  def cmd_update (self):
+    return self.client.templates.update (
+      name = self.args.template,
       from_email = self.conf["from_email"],
       from_name = self.conf["from_name"],
       subject = self.conf["subject"],
       code = self.templ_html,
-      text = self.templ_txt,
+      text = self.templ_text,
       publish = self.args.publish,
       labels = self.conf.get ("labels", []),
     )
 
-  def cmd_publish ():
-    return client.templates.publish (
-      name = self.conf["name"]
+  def cmd_publish (self):
+    return self.client.templates.publish (
+      name = self.args.template
     )
 
-  def cmd_delete ():
-    return client.templates.delete (
-      name = self.conf["name"]
+  def cmd_delete (self):
+    return self.client.templates.delete (
+      name = self.args.template
     )
 
-  def cmd_list ():
-    return client.templates.list (
-      list = self.conf["name"]
+  def cmd_list (self):
+    return self.client.templates.list (
+      list = self.args.template
     )
 
-  def cmd_time_series ():
-    return client.templates.publish (
-      name = self.conf["name"]
+  def cmd_time_series (self):
+    return self.client.templates.publish (
+      name = self.args.template
     )
 
   def get_context (self):
     self.templ_html = (path (self.args.template) + ".html").text ()
     self.templ_text = (path (self.args.template) + ".txt").text ()
-    self.conf = ConfigObj ((path (self.args.template) + ".cfg".text ()))
+    self.conf = ConfigObj ((path (self.args.template) + ".cfg").lines ())
 
   def run (self):
     try:
       self.get_context ()
     except Exception as e:
-      LOG.error ("Problem processing files for template: %s  action: %s",
-                 self.args.template, self.args.action)
+      LOG.error (
+        "Problem processing files for template: %s  action: %s -- %s",
+        self.args.template, self.args.action, e)
       sys.exit (2)
     act = getattr (self, "cmd_%s" % self.args.action, None)
     if act:
@@ -91,12 +92,12 @@ def parse_args ():
   parser = argparse.ArgumentParser (
       description = "Manage and deploy Mandrill templates.")
   parser.add_argument ("-k", "--key", metavar = "KEY", dest = "key",
-                       help = "Mandrill API key.")
-  parser.add_argument ("-t", "--template", metavar = "template",
+                       required = True, help = "Mandrill API key.")
+  parser.add_argument ("-t", "--template", metavar = "TEMPLATE",
                        dest = "template", required = True,
                        help = "Template to manipulate.")
-  parser.add_argument ("-a", "--action", metavar = "ACTION",
-                       dest = "act", required = True,
+  parser.add_argument ("-a", "--action", dest = "action",
+                       metavar = "ACTION", required = True,
                        help = "Action to perform")
   parser.add_argument ("-p", "--publish", action = "store_true",
                        help = "Auto-publish (for add and update).")
