@@ -17,10 +17,9 @@ setup (name = 'banana',
   include_package_data = True,
   zip_safe = False,
   install_requires = [
-    "boto",
-    "mppy",
+    "mandrill",
+    "configobj", 
     "path.py",
-    "requests",
   ],
   entry_points = {
     "console_scripts": [
