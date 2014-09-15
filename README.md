@@ -10,8 +10,7 @@ Install
 - Install pyver from https://github.com/clearclaw/pyver (currently
 being cleaned up for submission to the cheese shop -- this step will
 be unecessary/removed then).
-
--`sudo python setup.py install`
+- `sudo python setup.py install`
 
 Setup
 =====
