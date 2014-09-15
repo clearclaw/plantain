@@ -35,7 +35,7 @@ subject = Account Expiration
 ```
 The keys in the configfile match the keys used by the Mandrill API:
 
-    https://mandrillapp.com/api/docs/
+  https://mandrillapp.com/api/docs/
 
 Note that for fields which are lists, such as labels, you must put a
 comma after the first item if there's only one item in the list for it
