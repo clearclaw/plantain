@@ -1,5 +1,5 @@
-Overview
-========
+Banana
+======
 
 A commandline tool for managing the lifecycle of Mandrill templates.
 
