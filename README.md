@@ -20,11 +20,13 @@ Setup
 for the text fork, and a configfile (.cfg) for the metadata aspects of
 the template (sending address, Subject: header etc).  eg:
 
->
+
 > account_expired.cfg
-> account_expired.html
-> account_expired.txt
 >
+> account_expired.html
+>
+> account_expired.txt
+
 
 A sample configfile might read:
 
@@ -43,7 +45,7 @@ comma after the first item if there's only one item in the list for it
 to be recognised as a list (otherwise the list is the list of
 characters in the token):
 
-  labels = foo,
+> labels = foo,
 
 Usage
 =====
