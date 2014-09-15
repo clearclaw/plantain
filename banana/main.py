@@ -91,6 +91,8 @@ class BananaCmd (object):
 def parse_args ():
   parser = argparse.ArgumentParser (
       description = "Manage and deploy Mandrill templates.")
+  actions = ["add" "info", "update", "publish", "delete",
+             "list", "time_series",]
   parser.add_argument ("-k", "--key", metavar = "KEY", dest = "key",
                        required = True, help = "Mandrill API key.")
   parser.add_argument ("-t", "--template", metavar = "TEMPLATE",
@@ -98,7 +100,7 @@ def parse_args ():
                        help = "Template to manipulate.")
   parser.add_argument ("-a", "--action", dest = "action",
                        metavar = "ACTION", required = True,
-                       help = "Action to perform")
+                       help = "Action to perform: %s" % actions)
   parser.add_argument ("-p", "--publish", action = "store_true",
                        help = "Auto-publish (for add and update).")
   parser.add_argument ("-q", "--quiet", action = "store_true",
