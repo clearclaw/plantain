@@ -1,4 +1,4 @@
-Banana
+qBanana
 ======
 
 A commandline tool for managing the lifecycle of Mandrill templates.
@@ -10,10 +10,7 @@ management system (eg Salt, Ansible, cfengine, Chef, Puppet, etc).
 Install
 =======
 
-- Install pyver from https://github.com/clearclaw/pyver (currently
-being cleaned up for submission to the cheese shop -- this step will
-be unecessary/removed then).
-- `sudo python setup.py install`
+    `sudo python setup.py install`
 
 Setup
 =====

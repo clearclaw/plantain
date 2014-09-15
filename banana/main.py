@@ -13,6 +13,7 @@ class BananaCmd (object):
     self.client = mandrill.Mandrill (self.args.key)
     self.templ_html = None
     self.templ_text = None
+    self.conf = None
 
   def cmd_add (self):
     return self.client.templates.add (
@@ -27,7 +28,7 @@ class BananaCmd (object):
     )
 
   def cmd_info (self):
-    rc = self.client.templates.info (name = self.args.template)
+    return self.client.templates.info (name = self.args.template)
 
   def cmd_update (self):
     return self.client.templates.update (
@@ -52,9 +53,7 @@ class BananaCmd (object):
     )
 
   def cmd_list (self):
-    return self.client.templates.list (
-      list = self.args.template
-    )
+    return self.client.templates.list (list = self.args.template) # pylint: disable=E1123
 
   def cmd_time_series (self):
     return self.client.templates.publish (
@@ -82,10 +81,10 @@ class BananaCmd (object):
         if not self.args.quiet:
           print rc
       except mandrill.Error, e:
-       LOG.error ("Mandrill: %s - %s", e.__class__, e)
-       raise
+        LOG.error ("Mandrill: %s - %s", e.__class__, e)
+        raise
     else:
-      LOG.error ("No implementation for: %s", seklf.args.action)
+      LOG.error ("No implementation for: %s", self.args.action)
       sys.exit (1)
 
 def parse_args ():
