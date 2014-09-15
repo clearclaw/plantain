@@ -20,15 +20,15 @@ Setup
 for the text fork, and a configfile (.cfg) for the metadata aspects of
 the template (sending address, Subject: header etc).  eg:
 
->  account_expired.cfg
->  account_expired.html
->  account_expired.txt
+> account_expired.cfg
+> account_expired.html
+> account_expired.txt
 
 A sample configfile might read:
 
->  from_name = YourCompany
->  from_email = robot@yourcompany.com
->  subject = Account Expiration
+> from_name = YourCompany
+> from_email = robot@yourcompany.com
+> subject = Account Expiration
 
 The keys in the configfile match the keys used by the Mandrill API:
 
@@ -42,24 +42,24 @@ characters in the token):
   labels = foo,
 
 Usage
-=====>
+=====
 
->  $ banana -h
->  usage: banana [-h] -k KEY -t TEMPLATE -a ACTION [-p] [-q] [-v]
+> $ banana -h
+> usage: banana [-h] -k KEY -t TEMPLATE -a ACTION [-p] [-q] [-v]
 >
->  Manage and deploy Mandrill templates.
+> Manage and deploy Mandrill templates.
 >
->  optional arguments:
->    -h, --help            show this help message and exit
->    -k KEY, --key KEY     Mandrill API key.
->    -t TEMPLATE, --template TEMPLATE
->                          Template to manipulate.
->    -a ACTION, --action ACTION
->                          Action to perform: ['addinfo', 'update', 'publish',
->                          'delete', 'list', 'time_series']
->    -p, --publish         Auto-publish (for add and update).
->    -q, --quiet           Suppress normal output.
->    -v, --verbose         Output results and operations.
+> optional arguments:
+>   -h, --help            show this help message and exit
+>   -k KEY, --key KEY     Mandrill API key.
+>   -t TEMPLATE, --template TEMPLATE
+>                         Template to manipulate.
+>   -a ACTION, --action ACTION
+>                         Action to perform: ['addinfo', 'update', 'publish',
+>                         'delete', 'list', 'time_series']
+>   -p, --publish         Auto-publish (for add and update).
+>   -q, --quiet           Suppress normal output.
+>   -v, --verbose         Output results and operations.
 
 Examples
 ========
