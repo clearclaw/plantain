@@ -1,3 +1,6 @@
+Overview
+========
+
 A commandline tool for managing the lifecycle of Mandrill templates.
 
 In short, `banana` allows the user to manage their Mandril email
