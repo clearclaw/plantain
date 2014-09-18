@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 import pyver
 
-__version__, __version_info__ = pyver.get_version (pkg = "banana")
+__version__, __version_info__ = pyver.get_version (pkg = "plantain")
 
 setup (
-    name = 'banana',
+    name = 'plantain',
     version = __version__,
     description = "Command line tool for managing Mandrill templates.",
     long_description = file ("README.md").read (),
@@ -18,7 +18,7 @@ setup (
     keywords = "Mandrill templates commandline API",
     author = "J C Lawrence",
     author_email = "claw@kanga.nu",
-    url = "https://github.com/clearclaw/banana",
+    url = "https://github.com/clearclaw/plantain",
     license = "Proprietary",
     packages = find_packages (exclude = ["tests",]),
     include_package_data = True,
@@ -31,7 +31,7 @@ setup (
     ],
     entry_points = {
         "console_scripts": [
-        "banana = banana.main:main",
+        "plantain = plantain.main:main",
         ],
     },
 )

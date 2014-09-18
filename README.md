@@ -1,11 +1,11 @@
-Banana
-======
+Plantain
+========
 
 ![Plantain](plantain.jpg)
 
 A commandline tool for managing the lifecycle of Mandrill templates.
 
-In short, `banana` allows the user to manage their Mandril email
+In short, `plantain` allows the user to manage their Mandril email
 templates from the commandline, perhaps as part of their configuration
 management system (eg Salt, Ansible, cfengine, Chef, Puppet, etc).
 
@@ -17,7 +17,7 @@ Install
 Setup
 =====
 
-`banana` expects each template to consist of three files: an HTML file
+`plantain` expects each template to consist of three files: an HTML file
 (.html) for the HTML fork of the email to be sent, a text file (.txt)
 for the text fork, and a configfile (.cfg) for the metadata aspects of
 the template (sending address, Subject: header etc).  eg:
@@ -50,8 +50,8 @@ Usage
 =====
 
 ```
-$ banana -h
-usage: banana [-h] -k KEY -t TEMPLATE -a ACTION [-p] [-q] [-v]
+$ plantain -h
+usage: plantain [-h] -k KEY -t TEMPLATE -a ACTION [-p] [-q] [-v]
 
 Manage and deploy Mandrill templates.
 
@@ -73,12 +73,12 @@ Examples
 
 Example call to add a new template to Mandrill called "foo_bar":
 
-    $ banana -k AbbbcdeDeAdBeeFGaFFPA -t foo_bar -a add
+    $ plantain -k AbbbcdeDeAdBeeFGaFFPA -t foo_bar -a add
 
 Note that this will not "publish" the template.  To do that:
 
-    $ banana -k AbbbcdeDeAdBeeFGaFFPA -t foo_bar -a publish
+    $ plantain -k AbbbcdeDeAdBeeFGaFFPA -t foo_bar -a publish
 
 Or you can publish at the same time you add or update the template:
 
-    $ banana -k AbbbcdeDeAdBeeFGaFFPA -t foo_bar -a update -p
+    $ plantain -k AbbbcdeDeAdBeeFGaFFPA -t foo_bar -a update -p

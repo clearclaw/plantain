@@ -7,7 +7,7 @@ from path import path
 logging.basicConfig (level = logging.INFO)
 LOG = logging.getLogger (__name__)
 
-class BananaCmd (object):
+class PlantainCmd (object):
   def __init__ (self, args):
     self.args = args
     self.client = mandrill.Mandrill (self.args.key)
@@ -111,7 +111,7 @@ def parse_args ():
 
 def main ():
   args = parse_args ()
-  BananaCmd (args).run ()
+  PlantainCmd (args).run ()
 
 if __name__ ==  "__main__":
   main ()
