@@ -12,6 +12,10 @@ management system (eg Salt, Ansible, cfengine, Chef, Puppet, etc).
 Install
 =======
 
+    `pip install plantain`
+
+or:
+
     `sudo python setup.py install`
 
 Setup
