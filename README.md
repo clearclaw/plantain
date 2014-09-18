@@ -1,5 +1,7 @@
-qBanana
+Banana
 ======
+
+![Plantain](plantain.jpg)
 
 A commandline tool for managing the lifecycle of Mandrill templates.
 
