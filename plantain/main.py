@@ -102,7 +102,7 @@ class PlantainCmd (object):
 def parse_args ():
   parser = argparse.ArgumentParser (
     description = "Manage and deploy Mandrill templates.")
-  actions = ["add" "info", "update", "publish", "delete",
+  actions = ["add", "info", "update", "publish", "delete",
              "list", "time_series",]
   parser.add_argument ("-k", "--key", metavar = "KEY", dest = "key",
                        required = True, help = "Mandrill API key.")
