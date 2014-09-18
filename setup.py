@@ -32,6 +32,7 @@ setup (
     ],
     entry_points = {
         "console_scripts": [
+        "banana = banana.main:main",
         "plantain = plantain.main:main",
         ],
     },

@@ -18,6 +18,15 @@ or:
 
     `sudo python setup.py install`
 
+Notes
+=====
+
+Note: `Plantain` used to be called `banana`, until it turned out that
+someone else already had `banana` in the cheese shop!  For backward
+comparability `plantain` installs a `plantain` and for legacy support,
+a `banana` binary.
+
+
 Setup
 =====
 
