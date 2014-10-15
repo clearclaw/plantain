@@ -1,13 +1,14 @@
 from setuptools import setup, find_packages
 import pyver
 
-__version__, __version_info__ = pyver.get_version (pkg = "plantain")
+__version__, __version_info__ = pyver.get_version (pkg = "plantain",
+                                                   public = True)
 
 setup (
     name = 'plantain',
     version = __version__,
     description = "Command line tool for managing Mandrill templates.",
-    long_description = file ("README.md").read (),
+    long_description = file ("README.rst").read (),
     classifiers = [
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
