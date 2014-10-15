@@ -1,9 +1,9 @@
 Plantain
 ========
 
-.. image:: plantain.jp
-
 A commandline tool for managing the lifecycle of Mandrill templates.
+
+.. image:: plantain.jpg
 
 In short, *plantain* allows the user to manage their Mandril email
 templates from the commandline, perhaps as part of their configuration
