@@ -1,12 +1,11 @@
 Plantain
 ========
 
-.. image:: plantain.jpg
-   :alt: Plantain
+.. image:: plantain.jp
 
 A commandline tool for managing the lifecycle of Mandrill templates.
 
-In short, _plantain_ allows the user to manage their Mandril email
+In short, *plantain* allows the user to manage their Mandril email
 templates from the commandline, perhaps as part of their configuration
 management system (eg Salt, Ansible, cfengine, Chef, Puppet, etc).
 
@@ -26,15 +25,15 @@ or:
 Notes
 =====
 
-Note: _Plantain_ used to be called _banana_, until it turned out
-that someone else already had _banana_ in the cheese shop! For
-backward comparability _plantain_ installs a _plantain_ and for
-legacy support, a _banana_ binary.
+Note: *Plantain* used to be called *banana*, until it turned out
+that someone else already had *banana* in the cheese shop! For
+backward comparability *plantain* installs a *plantain* and for
+legacy support, a *banana* binary.
 
 Setup
 =====
 
-_plantain_ expects each template to consist of three files: an HTML
+*plantain* expects each template to consist of three files: an HTML
 file (.html) for the HTML fork of the email to be sent, a text file
 (.txt) for the text fork, and a configfile (.cfg) for the metadata
 aspects of the template (sending address, Subject: header etc). eg:
