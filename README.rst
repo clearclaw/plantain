@@ -6,7 +6,7 @@ Plantain
 
 A commandline tool for managing the lifecycle of Mandrill templates.
 
-In short, ``plantain`` allows the user to manage their Mandril email
+In short, _plantain_ allows the user to manage their Mandril email
 templates from the commandline, perhaps as part of their configuration
 management system (eg Salt, Ansible, cfengine, Chef, Puppet, etc).
 
@@ -15,26 +15,26 @@ Install
 
 ::
 
-    `pip install plantain`
+    $ pip install plantain
 
 or:
 
 ::
 
-    `sudo python setup.py install`
+    $ sudo python setup.py install
 
 Notes
 =====
 
-Note: ``Plantain`` used to be called ``banana``, until it turned out
-that someone else already had ``banana`` in the cheese shop! For
-backward comparability ``plantain`` installs a ``plantain`` and for
-legacy support, a ``banana`` binary.
+Note: _Plantain_ used to be called _banana_, until it turned out
+that someone else already had _banana_ in the cheese shop! For
+backward comparability _plantain_ installs a _plantain_ and for
+legacy support, a _banana_ binary.
 
 Setup
 =====
 
-``plantain`` expects each template to consist of three files: an HTML
+_plantain_ expects each template to consist of three files: an HTML
 file (.html) for the HTML fork of the email to be sent, a text file
 (.txt) for the text fork, and a configfile (.cfg) for the metadata
 aspects of the template (sending address, Subject: header etc). eg:
@@ -53,9 +53,7 @@ A sample configfile might read:
     from_email = robot@yourcompany.com
     subject = Account Expiration
 
-The keys in the configfile match the keys used by the Mandrill API:
-
-https://mandrillapp.com/api/docs/
+The keys in the configfile match the keys used by the Mandrill API: https://mandrillapp.com/api/docs/
 
 Note that for fields which are lists, such as labels, you must put a
 comma after the first item if there's only one item in the list for it
