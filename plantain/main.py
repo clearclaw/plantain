@@ -8,7 +8,7 @@ logging.basicConfig (level = logging.INFO)
 LOG = logging.getLogger (__name__)
 
 class PlantainCmd (object):
-  @logtool.log_func
+  @logtool.log_call
   def __init__ (self, args):
     self.args = args
     self.client = mandrill.Mandrill (self.args.key)
@@ -16,7 +16,7 @@ class PlantainCmd (object):
     self.templ_text = None
     self.conf = None
 
-  @logtool.log_func
+  @logtool.log_call
   def cmd_add (self):
     return self.client.templates.add (
       name = self.args.template,
@@ -29,11 +29,11 @@ class PlantainCmd (object):
       labels = self.conf.get ("labels", []),
     )
 
-  @logtool.log_func
+  @logtool.log_call
   def cmd_info (self):
     return self.client.templates.info (name = self.args.template)
 
-  @logtool.log_func
+  @logtool.log_call
   def cmd_update (self):
     return self.client.templates.update (
       name = self.args.template,
@@ -46,36 +46,36 @@ class PlantainCmd (object):
       labels = self.conf.get ("labels", []),
     )
 
-  @logtool.log_func
+  @logtool.log_call
   def cmd_publish (self):
     return self.client.templates.publish (
       name = self.args.template
     )
 
-  @logtool.log_func
+  @logtool.log_call
   def cmd_delete (self):
     return self.client.templates.delete (
       name = self.args.template
     )
 
-  @logtool.log_func
+  @logtool.log_call
   def cmd_list (self):
     return self.client.templates.list (
       list = self.args.template) # pylint: disable=E1123
 
-  @logtool.log_func
+  @logtool.log_call
   def cmd_time_series (self):
     return self.client.templates.publish (
       name = self.args.template
     )
 
-  @logtool.log_func
+  @logtool.log_call
   def get_context (self):
     self.templ_html = (path (self.args.template) + ".html").text ()
     self.templ_text = (path (self.args.template) + ".txt").text ()
     self.conf = ConfigObj ((path (self.args.template) + ".cfg").lines ())
 
-  @logtool.log_func
+  @logtool.log_call
   def run (self):
     try:
       self.get_context ()
@@ -98,7 +98,7 @@ class PlantainCmd (object):
       LOG.error ("No implementation for: %s", self.args.action)
       sys.exit (1)
 
-@logtool.log_func
+@logtool.log_call
 def parse_args ():
   parser = argparse.ArgumentParser (
     description = "Manage and deploy Mandrill templates.")
@@ -121,7 +121,7 @@ def parse_args ():
   args = parser.parse_args ()
   return args
 
-@logtool.log_func
+@logtool.log_call
 def main ():
   args = parse_args ()
   PlantainCmd (args).run ()
