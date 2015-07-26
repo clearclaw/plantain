@@ -2,7 +2,7 @@
 
 import argparse, logging, logtool, mandrill, sys
 from configobj import ConfigObj
-from path import path
+from path import Path
 
 logging.basicConfig (level = logging.INFO)
 LOG = logging.getLogger (__name__)
@@ -60,8 +60,8 @@ class PlantainCmd (object):
 
   @logtool.log_call
   def cmd_list (self):
-    return self.client.templates.list (
-      list = self.args.template) # pylint: disable=E1123
+    return self.client.templates.list ( # pylint: disable=E1123
+      list = self.args.template)
 
   @logtool.log_call
   def cmd_time_series (self):
@@ -71,9 +71,9 @@ class PlantainCmd (object):
 
   @logtool.log_call
   def get_context (self):
-    self.templ_html = (path (self.args.template) + ".html").text ()
-    self.templ_text = (path (self.args.template) + ".txt").text ()
-    self.conf = ConfigObj ((path (self.args.template) + ".cfg").lines ())
+    self.templ_html = (Path (self.args.template) + ".html").text ()
+    self.templ_text = (Path (self.args.template) + ".txt").text ()
+    self.conf = ConfigObj ((Path (self.args.template) + ".cfg").lines ())
 
   @logtool.log_call
   def run (self):
