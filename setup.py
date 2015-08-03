@@ -1,18 +1,10 @@
 #! /usr/bin/env python
 
 try:
-  import pyver # pylint: disable=W0611
+  import pyver
 except ImportError:
-  import os, subprocess
-  try:
-    environment = os.environ.copy()
-    cmd = "pip install pyver".split (" ")
-    subprocess.check_call (cmd, env = environment)
-  except subprocess.CalledProcessError:
-    import sys
-    print >> sys.stderr, "Problem installing 'pyver' dependency."
-    print >> sys.stderr, "Please install pyver manually."
-    sys.exit (1)
+  import pip
+  pip.main (['install', 'pyver'])
   import pyver # pylint: disable=W0611
 
 from setuptools import setup, find_packages
@@ -36,7 +28,7 @@ setup (
     author = "J C Lawrence",
     author_email = "claw@kanga.nu",
     url = "https://github.com/clearclaw/plantain",
-    license = "Proprietary",
+    license = "GPL v3.0",
     packages = find_packages (exclude = ["tests",]),
     include_package_data = True,
     zip_safe = False,
@@ -45,7 +37,6 @@ setup (
         "mandrill",
         "configobj",
         "path.py",
-        "pyver",
     ],
     entry_points = {
         "console_scripts": [
